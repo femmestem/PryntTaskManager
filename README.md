@@ -9,7 +9,7 @@ Christine Feaster (@femmestem), [christine@christine.codes](mailto:christine@chr
 ### System Requirements
  - <a href="http://git-scm.com/" target="_blank">Git</a>
  -  Ruby 2.3 (<a href="https://rvm.io/rvm/install" target="_blank">RVM</a> recommended for managing Ruby versions)
- -  Rails 4.2
+ -  Rails 4.2.7
  -  Postgres >= 9.3
  - <a href="https://github.com/sstephenson/execjs" target="_blank">ExecJS</a> supported JavaScript runtime (therubyracer gem is included)
 
