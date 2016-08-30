@@ -37,7 +37,7 @@ class TasksController < ApplicationController
 
   def destroy
     task = Task.destroy(params[:id])
-    redirect_to tasks_path, :notice => "Your task \"#{task}\" has been deleted."
+    redirect_to tasks_path, :notice => "Your task \"#{task.title}\" has been deleted."
   end
 
   private
