@@ -1,0 +1,9 @@
+<div class="tasks">
+<% @tasks.each do |task| %>
+    <div class="task-item">
+        <h2><a href="<%= task_path(task) %>"><%= task.title %></a></h2>
+        <p>Creator: <%= task.creator.email %></p>
+        </ul>
+    </div>
+<% end %>
+</div>
