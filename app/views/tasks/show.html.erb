@@ -1,11 +1,12 @@
-<a href="<%= tasks_url %>">Return to Tasks List</a>
+<%= link_to "Return to Tasks List", tasks_path %>
 
 <div class="task-item">
+
     <h2><%= @task.title %></h2>
     <h3>Description:</h3>
     <%= @task.description %></p>
     <p>Creator: <%= @task.creator.email %></p>
-    <p><a href="#">Request this assignment</a></p>
+    <p><%= button_to "Assign To Me", "#" %></p>
     <h3>Assigned to:</h3>
     <% if @task.assignees.empty? %>
     <p>Task is not yet assigned to anyone.</p>
