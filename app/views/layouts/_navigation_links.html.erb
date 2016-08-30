@@ -1,0 +1,23 @@
+<%# add navigation links to this file %>
+<ul class="right">
+  <% if user_signed_in? %>
+      <!-- menu items from tabs for small screens -->
+      <li class="show-for-small-only">
+        <%= link_to "New Task", new_task_path %>
+      </li>
+      <li class="show-for-small-only">
+        <%= link_to "View All Tasks", tasks_path %>
+      </li>
+      <!-- /menu items from tabs for small screens -->
+      <li>
+        <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+      </li>
+  <% else %>
+      <li>
+        <%= link_to 'Login', new_user_session_path %>
+      </li>
+      <li>
+        <%= link_to 'Sign Up', new_user_registration_path, :class => "btn-primary" %>
+      </li>
+  <% end %>
+</ul>
