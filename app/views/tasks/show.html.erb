@@ -8,7 +8,7 @@
     <p><a href="#">Request this assignment</a></p>
     <h3>Assigned to:</h3>
     <% if @task.assignees.empty? %>
-    <p>@Task is not yet assigned to anyone.</p>
+    <p>Task is not yet assigned to anyone.</p>
     <% end %>
     <ul>
     <% @task.assignees.each do |assignee| %>
