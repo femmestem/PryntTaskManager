@@ -27,8 +27,14 @@
     <% if @task.assignees.empty? %>
     <p>Task is not yet assigned to anyone.</p>
     <% end %>
-    <% unless @task.owned_by?(current_user) or @task.assigned_to?(current_user) %>
-    <p><%= button_to "Assign To Me", "#" %></p>
+    <% unless @task.owned_by?(current_user) %>
+        <p>
+        <% if @task.assigned_to?(current_user) %>
+        <%= button_to "Remove Me From Assignment", task_assignments_path(task_id: @task.id, user: current_user), method: :delete, class: "button radius" %>
+        <% else %>
+    <%= button_to "Assign To Me", task_assignment_path(task_id: @task, user: current_user), class: "button radius" %>
+        <% end %>
+     </p>
     <% end %>
     <ul>
     <% @task.assignees.each do |assignee| %>
