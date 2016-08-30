@@ -22,12 +22,22 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = Task.find(params[:id])
   end
 
   def update
+    @task = Task.find(params[:id])
+
+    if @task.update_attributes(task_params)
+      redirect_to task_path, :notice => "Your task has been updated."
+    else
+      redirect_to edit_task_path, :notice => "Your task could not be saved. Make sure all fields are filled out and try again."
+    end
   end
 
   def destroy
+    task = Task.destroy(params[:id])
+    redirect_to tasks_path, :notice => "Your task \"#{task}\" has been deleted."
   end
 
   private

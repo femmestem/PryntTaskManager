@@ -1,0 +1,6 @@
+<%= simple_form_for @task,
+    url: { action: :update, controller: 'tasks'}, :method => :put, validate: true do |f| %>
+      <%= f.input :title, input_html: { value: @task.title || '' } %>
+      <%= f.text_area :description, input_html: { value: @task.description || '' } %>
+      <%= f.button :submit %>
+<% end %>

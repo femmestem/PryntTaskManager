@@ -1,19 +1,33 @@
-<%= link_to "Return to Tasks List", tasks_path %>
+<div class="row breadcrumb">
+    <div class="column">
+        <%= link_to "Return to Tasks List", tasks_path %>
+    </div>
+</div>
 
-<div class="task-item">
+<div class="row task-content-container">
+    <div class="columns small-6">
+        <h2><%= @task.title %></h2>
+        <h3>Description</h3>
+        <%= @task.description %></p>
+        <p><em>Created by <%= @task.creator.email %></em></p>
 
-    <h2><%= @task.title %></h2>
-    <h3>Description:</h3>
-    <%= @task.description %></p>
-    <p>Creator: <%= @task.creator.email %></p>
-    <p><%= button_to "Assign To Me", "#" %></p>
-    <h3>Assigned to:</h3>
+        <% if @task.owned_by?(current_user) or @task.assigned_to?(current_user)%>
+        <p><%= link_to "Edit", edit_task_path(@task) %></p>
+        <% end %>
+    </div>
+
+<div class="columns small-6">
+    <h3>Assigned to</h3>
     <% if @task.assignees.empty? %>
     <p>Task is not yet assigned to anyone.</p>
+    <% end %>
+    <% unless @task.owned_by?(current_user) or @task.assigned_to?(current_user) %>
+    <p><%= button_to "Assign To Me", "#" %></p>
     <% end %>
     <ul>
     <% @task.assignees.each do |assignee| %>
     <li><%= assignee.email %></li>
     <% end %>
     </ul>
+</div>
 </div>
