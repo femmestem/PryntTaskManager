@@ -1,5 +1,12 @@
+<div class="row">
 <%= simple_form_for @task do |f| %>
-  <%= f.input :title %>
-  <%= f.text_area :description %>
-  <%= f.button :submit %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.text_area :description %>
+    </div>
+    <div class="form-actions">
+    <%= f.button :submit, class: "button radius" %>
+    </div>
 <% end %>
+</div>
