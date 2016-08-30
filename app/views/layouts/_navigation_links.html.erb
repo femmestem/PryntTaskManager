@@ -1,6 +1,8 @@
 <%# add navigation links to this file %>
 <ul class="right">
   <% if user_signed_in? %>
+      <li><%= link_to "My Profile", user_path(current_user), :class => "" %>
+      </li>
       <!-- menu items from tabs for small screens -->
       <li class="show-for-small-only">
         <%= link_to "New Task", new_task_path %>

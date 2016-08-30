@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     post '/assignments', to: 'task_assignments#create', as: 'assignment'
     delete '/assignments', to: 'task_assignments#destroy'
   end
+  resources :users, only: [:show, :edit, :update]
 end
