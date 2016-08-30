@@ -102,6 +102,7 @@ $prynt-dark-orange: #f0532b;
 // links, buttons
 $prynt-blue: #58b5bf;
 
+$light-gray: #f7f7f7;
 $gray: #ededed;
 $medium-gray: #999;
 $dark-gray: #333;
@@ -999,7 +1000,7 @@ $header-font-color: $prynt-dark-orange;
 // $include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-// $panel-bg: scale-color($white, $lightness: -5%);
+$panel-bg: $light-gray;
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 // $callout-panel-bg: scale-color($primary-color, $lightness: 94%);

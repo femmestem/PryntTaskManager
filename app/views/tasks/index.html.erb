@@ -1,10 +1,14 @@
-<div class="tasks">
-<%= link_to "+ New Task", new_task_path %>
-<% @tasks.each do |task| %>
-    <div class="task-item">
-        <h2><a href="<%= task_path(task) %>"><%= task.title %></a></h2>
-        <p>Creator: <%= task.creator.email %></p>
-        </ul>
+<div class="row tasks">
+    <h1>Tasks List</h1>
+    <%= link_to "+ New Task", new_task_path, class: "button radius" %>
+    <% @tasks.each do |task| %>
+    <div class="task-item panel">
+        <div class="task-item">
+            <h2><%= task.title %></h2>
+            <%= link_to "See Details", task_path(task) %>
+            <p>Created by <%= task.creator.email %></p>
+            </ul>
+        </div>
     </div>
-<% end %>
+    <% end %>
 </div>

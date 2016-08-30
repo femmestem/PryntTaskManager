@@ -6,35 +6,32 @@
 
 <div class="row task-content-container">
     <div class="columns small-6">
-        <h2><%= @task.title %></h2>
-        <h3>Description</h3>
+        <h1><%= @task.title %></h1>
+        <h2>Description</h2>
         <%= @task.description %></p>
         <p><em>Created by <%= @task.creator.email %></em></p>
-
         <% if @task.owned_by?(current_user) or @task.assigned_to?(current_user)%>
         <p><%= link_to "Edit", edit_task_path(@task) %></p>
         <% end %>
+        <p>
+
         <% if @task.owned_by?(current_user) %>
         <p><%= button_to "Delete",
             { action: "destroy" },
                 method: :delete,
-                data: { confirm: "Are you sure?" } %></p>
+                data: { confirm: "Are you sure?" },
+                class: "button radius alert" %></p>
         <% end %>
     </div>
-
-<div class="columns small-6">
-    <h3>Assigned to</h3>
-    <% if @task.assignees.empty? %>
-    <p>Task is not yet assigned to anyone.</p>
-    <% end %>
-    <% unless @task.owned_by?(current_user) %>
-        <p>
-        <% if @task.assigned_to?(current_user) %>
-        <%= button_to "Remove Me From Assignment", task_assignments_path(task_id: @task.id, user: current_user), method: :delete, class: "button radius" %>
-        <% else %>
+    <% if @task.assigned_to?(current_user) %>
+    <%= button_to "Remove Me From Assignment", task_assignments_path(task_id: @task.id, user: current_user), method: :delete, class: "button radius" %>
+    <% else %>
     <%= button_to "Assign To Me", task_assignment_path(task_id: @task, user: current_user), class: "button radius" %>
-        <% end %>
-     </p>
+    <% end %>
+<div class="columns small-6 panel">
+    <h2>Assigned to</h2>
+    <% if @task.assignees.empty? %>
+    <p>Task is not yet assigned to anyone</p>
     <% end %>
     <ul>
     <% @task.assignees.each do |assignee| %>
