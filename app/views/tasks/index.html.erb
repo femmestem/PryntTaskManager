@@ -1,8 +1,13 @@
 <div class="row tasks">
     <h1>Tasks List</h1>
+    <div class="row">
+        
     <%= link_to "+ New Task", new_task_path, class: "button radius" %>
+    </div>
+    <div class="row">
+        
     <% @tasks.each do |task| %>
-    <div class="task-item panel">
+    <div class="task-item vcard">
         <div class="task-item">
             <h2><%= task.title %></h2>
             <%= link_to "See Details", task_path(task) %>
@@ -11,4 +16,5 @@
         </div>
     </div>
     <% end %>
+    </div>
 </div>

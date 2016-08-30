@@ -7,7 +7,7 @@
 <div class="row task-content-container">
     <div class="columns small-6">
         <h1><%= @task.title %></h1>
-        <h2>Description</h2>
+        <p><strong>Description</strong></p>
         <%= @task.description %></p>
         <p><em>Created by <%= @task.creator.email %></em></p>
         <% if @task.owned_by?(current_user) or @task.assigned_to?(current_user)%>
@@ -29,7 +29,7 @@
     <%= button_to "Assign To Me", task_assignment_path(task_id: @task, user: current_user), class: "button radius" %>
     <% end %>
 <div class="columns small-6 panel">
-    <h2>Assigned to</h2>
+    <h2><small>Assigned to</small></h2>
     <% if @task.assignees.empty? %>
     <p>Task is not yet assigned to anyone</p>
     <% end %>
