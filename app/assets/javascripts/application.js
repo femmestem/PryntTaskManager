@@ -13,5 +13,10 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
+//= require rails.validations
+//= require rails.validations.simple_form
 //= require_tree .
+
+$(function(){ $(document).foundation(); });

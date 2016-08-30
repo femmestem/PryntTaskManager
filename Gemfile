@@ -12,6 +12,16 @@ gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'normalize-rails'
+# Foundation 5 required for Simple Form compatibility
+gem 'foundation-rails', '~> 5.5.3'
+gem 'font-awesome-rails', '~> 4.5'
+gem 'simple_form', '~> 3.2.0'
+# Fixes Simple Form issues with Rails > 4.0
+gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations'
+gem 'client_side_validations-simple_form', github: 'DavyJonesLocker/client_side_validations-simple_form'
+
+
 gem 'devise'
 
 group :development, :test do
