@@ -1,4 +1,5 @@
 <div class="tasks">
+<%= link_to "+ New Task", new_task_path %>
 <% @tasks.each do |task| %>
     <div class="task-item">
         <h2><a href="<%= task_path(task) %>"><%= task.title %></a></h2>
